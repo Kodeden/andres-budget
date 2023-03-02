@@ -1,5 +1,19 @@
+import { useEffect, useState } from "react";
+
 function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  const [budget, setBudget] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/budget")
+      .then((response) => response.json())
+      .then((budgetData) => {
+        setBudget(budgetData);
+      });
+  }, []);
+
+  // If 'budget' is truthy, then render the first element of the array
+  // SHORT-CIRCUIT EVALUATION
+  return budget && <p>{budget[0].amount}</p>;
 }
 
 export default App;
