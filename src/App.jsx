@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Table from "./components/table/table";
 
 function App() {
   const [budget, setBudget] = useState(null);
@@ -13,7 +14,7 @@ function App() {
 
   // If 'budget' is truthy, then render the first element of the array
   // SHORT-CIRCUIT EVALUATION
-  return budget && <p>{budget[0].amount}</p>;
+  return budget && <Table budget={budget} />;
 }
 
 export default App;
