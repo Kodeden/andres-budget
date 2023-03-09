@@ -1,22 +1,14 @@
 import PropTypes from "prop-types";
+import TRow from "./t-row";
+import THead from "./t-head";
 
 export default function Table({ budget }) {
   return (
     <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Amount</th>
-          <th>Description</th>
-        </tr>
-      </thead>
+      <THead />
       <tbody>
         {budget.map((item) => (
-          <tr key={item.id}>
-            <td>{item.date}</td>
-            <td>{item.amount}</td>
-            <td>{item.description}</td>
-          </tr>
+          <TRow key={item.id} item={item} />
         ))}
       </tbody>
     </table>
