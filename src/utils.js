@@ -4,6 +4,7 @@ export function formatDateTime(date) {
     year: "numeric",
     month: "short",
     day: "numeric",
+    timeZone: "UTC", // Set the time zone to UTC to avoid daylight savings time
   };
 
   return d.toLocaleDateString("en-US", options);
