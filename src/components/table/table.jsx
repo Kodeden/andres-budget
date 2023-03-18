@@ -4,7 +4,7 @@ import THead from "./t-head";
 
 export default function Table({ budget }) {
   return (
-    <table>
+    <table className="container mx-auto border-separate border-spacing-y-2">
       <THead />
       <tbody>
         {budget.map((item) => (
