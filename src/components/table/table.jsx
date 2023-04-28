@@ -1,8 +1,10 @@
-import PropTypes from "prop-types";
-import TRow from "./t-row";
+import { useLoaderData } from "react-router-dom";
 import THead from "./t-head";
+import TRow from "./t-row";
 
-export default function Table({ budget }) {
+export default function Table() {
+  const budget = useLoaderData();
+
   return (
     <table className="container mx-auto border-separate border-spacing-y-2">
       <THead />
@@ -14,14 +16,3 @@ export default function Table({ budget }) {
     </table>
   );
 }
-
-Table.propTypes = {
-  budget: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      date: PropTypes.string.isRequired,
-      amount: PropTypes.number.isRequired,
-      description: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
